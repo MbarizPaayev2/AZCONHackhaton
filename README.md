@@ -4,7 +4,7 @@
 -->
 
 <p align="center">
-  <img src="docs/img/azcspm-logo.svg" alt="AzCSPM logo" width="420" />
+  <img src="docs/img/azcspm-logo.svg" alt="AzCSPM logo" width="600" />
 </p>
 
 <h1 align="center">AzCSPM</h1>
