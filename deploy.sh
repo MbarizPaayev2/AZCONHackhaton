@@ -39,8 +39,8 @@ sudo apt-get install -y git
 
 # 4. Clone the repository
 echo "[4/6] Cloning repository..."
-REPO_URL="https://github.com/MbarizPaayev2/azconhackhatonvercel.git"
-REPO_DIR="azconhackhatonvercel"
+REPO_URL="https://github.com/MbarizPaayev2/AZCONHackhaton.git"
+REPO_DIR="AZCONHackhaton"
 
 if [ -d "$REPO_DIR" ]; then
     echo "Directory $REPO_DIR already exists. Pulling latest changes..."
