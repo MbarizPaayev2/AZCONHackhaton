@@ -12,7 +12,6 @@ echo ""
 # 1. Update system packages
 echo "[1/6] Updating system packages..."
 sudo apt-get update -y
-sudo apt-get upgrade -y
 
 # 2. Install Docker using the official get.docker.com script
 echo "[2/6] Installing Docker..."
@@ -55,12 +54,19 @@ fi
 echo "[5/6] Starting backend services..."
 cd "$REPO_DIR"
 
-# Create required data directories
+# Clean up any previous failed neo4j data to avoid permission/lock issues
+echo "Preparing data directories..."
+sudo rm -rf ./_data/neo4j
 mkdir -p ./_data/api ./_data/postgres ./_data/valkey ./_data/neo4j
+chmod -R 777 ./_data/neo4j
 
 # Pull latest images and start services
+echo "Pulling images..."
 sudo docker compose -f docker-compose.backend.yml pull
-sudo docker compose -f docker-compose.backend.yml up -d
+
+echo "Starting services..."
+sudo docker compose -f docker-compose.backend.yml down --remove-orphans 2>/dev/null || true
+sudo docker compose -f docker-compose.backend.yml up -d --remove-orphans
 
 echo ""
 echo "[6/6] Checking service status..."
@@ -84,7 +90,6 @@ echo "  Stop services:      sudo docker compose -f docker-compose.backend.yml do
 echo "  Restart services:   sudo docker compose -f docker-compose.backend.yml restart"
 echo ""
 echo "Next steps:"
-echo "  1. Update .env: replace YOUR_DO_IP with your actual DigitalOcean Droplet IP"
-echo "  2. Restart API container after .env update: sudo docker compose -f docker-compose.backend.yml restart api"
-echo "  3. Update Vercel frontend env var NEXT_PUBLIC_API_BASE_URL to your DO IP"
+echo "  1. Check service status: sudo docker compose -f docker-compose.backend.yml ps"
+echo "  2. Update Vercel frontend env var NEXT_PUBLIC_API_BASE_URL to your DO IP"
 echo ""
