@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "locale": "az",
+    "name": "Azərbaycan dili",
+    "fallback": "en",
+    "owner": "AzCSPM Localization Team",
+    "version": "1.0.0"
+  },
+  "common": {
+    "loading": "Yüklənir...",
+    "error": "Xəta baş verdi",
+    "save": "Yadda saxla",
+    "cancel": "Ləğv et",
+    "delete": "Sil",
+    "confirm": "Təsdiqlə",
+    "search": "Axtar",
+    "yes": "Bəli",
+    "no": "Xeyr"
+  },
+  "nav": {
+    "overview": "Ümumi baxış",
+    "providers": "Provayderlər",
+    "scans": "Yoxlamalar",
+    "findings": "Tapıntılar",
+    "compliance": "Uyğunluq",
+    "attack_paths": "Hücum yolları",
+    "settings": "Tənzimləmələr",
+    "logout": "Çıxış"
+  },
+  "scan": {
+    "start": "Yeni yoxlama başlat",
+    "running": "Yoxlama icra olunur",
+    "completed": "Tamamlandı",
+    "failed": "Uğursuz",
+    "cancelled": "Ləğv edilib",
+    "progress": "İrəliləyiş"
+  },
+  "findings": {
+    "severity": {
+      "critical": "Kritik",
+      "high": "Yüksək",
+      "medium": "Orta",
+      "low": "Aşağı",
+      "informational": "Məlumat xarakterli"
+    },
+    "status": {
+      "pass": "Uğurlu",
+      "fail": "Uğursuz",
+      "muted": "Susdurulub"
+    }
+  },
+  "compliance": {
+    "frameworks": "Uyğunluq çərçivələri",
+    "score": "Uyğunluq balı",
+    "passed_requirements": "Yerinə yetirilmiş tələblər",
+    "failed_requirements": "Yerinə yetirilməmiş tələblər"
+  },
+  "az_specific": {
+    "amb_compliance": "Mərkəzi Bank uyğunluğu",
+    "fincert_alerts": "FinCERT xəbərdarlıqları",
+    "data_residency": "Məlumat lokalizasiyası (Azərbaycan)",
+    "g_cloud_tier_3": "G-Cloud Tier III sertifikatlaşdırılması"
+  }
+}

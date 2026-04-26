@@ -1,0 +1,24 @@
+{
+  "page": {
+    "dashboard": "Dashboard",
+    "overview": "Overview",
+    "compliance": "Compliance",
+    "findings": "Findings",
+    "scans": "Scans",
+    "reports": "Reports",
+    "settings": "Settings"
+  },
+  "widget": {
+    "scan_summary": "Scan summary",
+    "compliance_overview": "Compliance overview",
+    "top_failed_checks": "Top failed checks",
+    "severity_breakdown": "Severity breakdown",
+    "trends": "Trends"
+  },
+  "action": {
+    "export_csv": "Export CSV",
+    "export_pdf": "Export PDF",
+    "rerun_scan": "Re-run scan",
+    "schedule": "Schedule"
+  }
+}

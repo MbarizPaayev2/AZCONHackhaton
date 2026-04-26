@@ -1,0 +1,291 @@
+{
+  "Framework": "CIS-Controls",
+  "Name": "CIS Critical Security Controls v8",
+  "Version": "8.1",
+  "Provider": "AWS",
+  "Description": "The CIS Critical Security Controls (CIS Controls) are a prioritized set of Safeguards to mitigate the most prevalent cyber-attacks against systems and networks. Version 8 consolidates the previous 20 controls into 18, with a focus on cloud and modern enterprise environments. AzCSPM maps each Safeguard to relevant AWS configuration checks for automated compliance assessment.",
+  "Requirements": [
+    {
+      "Id": "1",
+      "Name": "Inventory and Control of Enterprise Assets",
+      "Description": "Actively manage (inventory, track, and correct) all enterprise assets connected to the infrastructure physically, virtually, remotely, and those within cloud environments.",
+      "Attributes": [
+        {"ItemId": "1", "Section": "Inventory and Control of Enterprise Assets", "Service": "aws"}
+      ],
+      "Checks": [
+        "ec2_instance_managed_by_ssm",
+        "ssm_managed_compliant_patching",
+        "config_recorder_all_regions_enabled"
+      ]
+    },
+    {
+      "Id": "2",
+      "Name": "Inventory and Control of Software Assets",
+      "Description": "Actively manage (inventory, track, and correct) all software (operating systems and applications) on the network so that only authorized software is installed and can execute.",
+      "Attributes": [
+        {"ItemId": "2", "Section": "Inventory and Control of Software Assets", "Service": "aws"}
+      ],
+      "Checks": [
+        "ec2_ami_public",
+        "ecr_repositories_scan_vulnerabilities_in_latest_image",
+        "ecs_task_definitions_no_environment_secrets"
+      ]
+    },
+    {
+      "Id": "3",
+      "Name": "Data Protection",
+      "Description": "Develop processes and technical controls to identify, classify, securely handle, retain, and dispose of data.",
+      "Attributes": [
+        {"ItemId": "3", "Section": "Data Protection", "Service": "aws"}
+      ],
+      "Checks": [
+        "s3_bucket_default_encryption",
+        "s3_bucket_secure_transport_policy",
+        "s3_bucket_public_access",
+        "ec2_ebs_volume_encryption",
+        "rds_instance_storage_encrypted",
+        "dynamodb_tables_kms_cmk_encryption_enabled",
+        "efs_encryption_at_rest_enabled",
+        "redshift_cluster_in_transit_encryption_enabled",
+        "kms_cmk_rotation_enabled",
+        "sns_topics_kms_encryption_at_rest_enabled",
+        "sqs_queues_server_side_encryption_enabled",
+        "sagemaker_notebook_instance_encryption_enabled"
+      ]
+    },
+    {
+      "Id": "4",
+      "Name": "Secure Configuration of Enterprise Assets and Software",
+      "Description": "Establish and maintain the secure configuration of enterprise assets (end-user devices, network devices, non-computing/IoT devices, and servers) and software (operating systems and applications).",
+      "Attributes": [
+        {"ItemId": "4", "Section": "Secure Configuration", "Service": "aws"}
+      ],
+      "Checks": [
+        "ec2_securitygroup_default_restrict_traffic",
+        "ec2_securitygroup_allow_ingress_from_internet_to_any_port",
+        "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_22",
+        "ec2_securitygroup_allow_ingress_from_internet_to_tcp_port_3389",
+        "rds_instance_no_public_access",
+        "redshift_cluster_public_access",
+        "elbv2_listeners_underneath_ssl_policy",
+        "elb_ssl_listeners",
+        "cloudfront_distributions_https_enabled"
+      ]
+    },
+    {
+      "Id": "5",
+      "Name": "Account Management",
+      "Description": "Use processes and tools to assign and manage authorization to credentials for user accounts, including administrator accounts, as well as service accounts, to enterprise assets and software.",
+      "Attributes": [
+        {"ItemId": "5", "Section": "Account Management", "Service": "aws"}
+      ],
+      "Checks": [
+        "iam_no_root_access_key",
+        "iam_root_mfa_enabled",
+        "iam_root_hardware_mfa_enabled",
+        "iam_user_mfa_enabled_console_access",
+        "iam_user_accesskey_unused",
+        "iam_user_console_access_unused",
+        "iam_rotate_access_key_90_days",
+        "iam_password_policy_minimum_length_14",
+        "iam_password_policy_uppercase",
+        "iam_password_policy_lowercase",
+        "iam_password_policy_number",
+        "iam_password_policy_symbol",
+        "iam_password_policy_reuse_24"
+      ]
+    },
+    {
+      "Id": "6",
+      "Name": "Access Control Management",
+      "Description": "Use processes and tools to create, assign, manage, and revoke access credentials and privileges for user, administrator, and service accounts.",
+      "Attributes": [
+        {"ItemId": "6", "Section": "Access Control Management", "Service": "aws"}
+      ],
+      "Checks": [
+        "iam_aws_attached_policy_no_administrative_privileges",
+        "iam_customer_attached_policy_no_administrative_privileges",
+        "iam_inline_policy_no_administrative_privileges",
+        "iam_policy_attached_only_to_group_or_roles",
+        "iam_user_two_active_access_key",
+        "iam_support_role_created"
+      ]
+    },
+    {
+      "Id": "7",
+      "Name": "Continuous Vulnerability Management",
+      "Description": "Develop a plan to continuously assess and track vulnerabilities on all enterprise assets within the enterprise's infrastructure.",
+      "Attributes": [
+        {"ItemId": "7", "Section": "Continuous Vulnerability Management", "Service": "aws"}
+      ],
+      "Checks": [
+        "ecr_repositories_scan_vulnerabilities_in_latest_image",
+        "ecr_repositories_scan_images_on_push_enabled",
+        "inspector2_is_enabled",
+        "securityhub_enabled"
+      ]
+    },
+    {
+      "Id": "8",
+      "Name": "Audit Log Management",
+      "Description": "Collect, alert, review, and retain audit logs of events that could help detect, understand, or recover from an attack.",
+      "Attributes": [
+        {"ItemId": "8", "Section": "Audit Log Management", "Service": "aws"}
+      ],
+      "Checks": [
+        "cloudtrail_multi_region_enabled",
+        "cloudtrail_log_file_validation_enabled",
+        "cloudtrail_kms_encryption_enabled",
+        "cloudtrail_cloudwatch_logging_enabled",
+        "cloudtrail_logs_s3_bucket_is_not_publicly_accessible",
+        "cloudtrail_logs_s3_bucket_access_logging_enabled",
+        "cloudtrail_s3_dataevents_read_enabled",
+        "cloudtrail_s3_dataevents_write_enabled",
+        "cloudwatch_log_group_kms_encryption_enabled",
+        "cloudwatch_log_metric_filter_authentication_failures",
+        "cloudwatch_log_metric_filter_root_usage",
+        "cloudwatch_log_metric_filter_unauthorized_api_calls",
+        "redshift_cluster_audit_logging"
+      ]
+    },
+    {
+      "Id": "9",
+      "Name": "Email and Web Browser Protections",
+      "Description": "Improve protections and detections of threats from email and web vectors, as these are opportunities for attackers to manipulate human behavior through direct engagement.",
+      "Attributes": [
+        {"ItemId": "9", "Section": "Email and Web Browser Protections", "Service": "aws"}
+      ],
+      "Checks": [
+        "ses_identity_dkim_enabled",
+        "workspaces_volume_encryption_enabled"
+      ]
+    },
+    {
+      "Id": "10",
+      "Name": "Malware Defenses",
+      "Description": "Prevent or control the installation, spread, and execution of malicious applications, code, or scripts on enterprise assets.",
+      "Attributes": [
+        {"ItemId": "10", "Section": "Malware Defenses", "Service": "aws"}
+      ],
+      "Checks": [
+        "guardduty_is_enabled",
+        "guardduty_no_high_severity_findings",
+        "inspector2_active_findings_exist"
+      ]
+    },
+    {
+      "Id": "11",
+      "Name": "Data Recovery",
+      "Description": "Establish and maintain data recovery practices sufficient to restore in-scope enterprise assets to a pre-incident and trusted state.",
+      "Attributes": [
+        {"ItemId": "11", "Section": "Data Recovery", "Service": "aws"}
+      ],
+      "Checks": [
+        "rds_instance_backup_enabled",
+        "redshift_cluster_automated_snapshot",
+        "dynamodb_tables_pitr_enabled",
+        "s3_bucket_object_versioning",
+        "backup_plans_exist",
+        "backup_vaults_exist",
+        "efs_have_backup_enabled"
+      ]
+    },
+    {
+      "Id": "12",
+      "Name": "Network Infrastructure Management",
+      "Description": "Establish, implement, and actively manage (track, report, correct) network devices, in order to prevent attackers from exploiting vulnerable network services and access points.",
+      "Attributes": [
+        {"ItemId": "12", "Section": "Network Infrastructure Management", "Service": "aws"}
+      ],
+      "Checks": [
+        "vpc_flow_logs_enabled",
+        "vpc_endpoint_connections_trust_boundaries",
+        "ec2_networkacl_allow_ingress_any_port",
+        "ec2_networkacl_allow_ingress_tcp_port_22"
+      ]
+    },
+    {
+      "Id": "13",
+      "Name": "Network Monitoring and Defense",
+      "Description": "Operate processes and tooling to establish and maintain comprehensive network monitoring and defense against security threats across the enterprise's network infrastructure and user base.",
+      "Attributes": [
+        {"ItemId": "13", "Section": "Network Monitoring and Defense", "Service": "aws"}
+      ],
+      "Checks": [
+        "guardduty_is_enabled",
+        "vpc_flow_logs_enabled",
+        "wafv2_webacl_logging_enabled",
+        "wafv2_webacl_with_rules"
+      ]
+    },
+    {
+      "Id": "14",
+      "Name": "Security Awareness and Skills Training",
+      "Description": "Establish and maintain a security awareness program to influence behavior among the workforce to be security conscious and properly skilled to reduce cybersecurity risks.",
+      "Attributes": [
+        {"ItemId": "14", "Section": "Security Awareness and Skills Training", "Service": "aws"}
+      ],
+      "Checks": [
+        "iam_support_role_created"
+      ]
+    },
+    {
+      "Id": "15",
+      "Name": "Service Provider Management",
+      "Description": "Develop a process to evaluate service providers who hold sensitive data, or are responsible for an enterprise's critical IT platforms or processes, to ensure these providers are protecting those platforms and data appropriately.",
+      "Attributes": [
+        {"ItemId": "15", "Section": "Service Provider Management", "Service": "aws"}
+      ],
+      "Checks": [
+        "config_recorder_all_regions_enabled",
+        "iam_policy_no_full_access_to_cloudtrail",
+        "iam_policy_no_full_access_to_kms"
+      ]
+    },
+    {
+      "Id": "16",
+      "Name": "Application Software Security",
+      "Description": "Manage the security life cycle of in-house developed, hosted, or acquired software to prevent, detect, and remediate security weaknesses before they can impact the enterprise.",
+      "Attributes": [
+        {"ItemId": "16", "Section": "Application Software Security", "Service": "aws"}
+      ],
+      "Checks": [
+        "ecs_task_definitions_no_environment_secrets",
+        "secretsmanager_automatic_rotation_enabled",
+        "ssm_documents_set_as_public",
+        "lambda_function_no_secrets_in_variables"
+      ]
+    },
+    {
+      "Id": "17",
+      "Name": "Incident Response Management",
+      "Description": "Establish a program to develop and maintain an incident response capability (e.g., policies, plans, procedures, defined roles, training, and communications) to prepare, detect, and quickly respond to an attack.",
+      "Attributes": [
+        {"ItemId": "17", "Section": "Incident Response Management", "Service": "aws"}
+      ],
+      "Checks": [
+        "guardduty_is_enabled",
+        "securityhub_enabled",
+        "cloudwatch_log_metric_filter_security_group_changes",
+        "cloudwatch_log_metric_filter_disable_or_scheduled_deletion_of_kms_cmk",
+        "cloudwatch_log_metric_filter_policy_changes",
+        "cloudwatch_log_metric_filter_for_s3_bucket_policy_changes",
+        "cloudwatch_log_metric_filter_and_alarm_for_cloudtrail_configuration_changes_enabled",
+        "cloudwatch_log_metric_filter_and_alarm_for_aws_config_configuration_changes_enabled"
+      ]
+    },
+    {
+      "Id": "18",
+      "Name": "Penetration Testing",
+      "Description": "Test the effectiveness and resiliency of enterprise assets through identifying and exploiting weaknesses in controls (people, processes, and technology) and simulating the objectives and actions of an attacker.",
+      "Attributes": [
+        {"ItemId": "18", "Section": "Penetration Testing", "Service": "aws"}
+      ],
+      "Checks": [
+        "inspector2_is_enabled",
+        "inspector2_active_findings_exist",
+        "securityhub_enabled"
+      ]
+    }
+  ]
+}

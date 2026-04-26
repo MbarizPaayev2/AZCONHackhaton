@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "locale": "en",
+    "name": "English",
+    "fallback": null,
+    "owner": "AzCSPM Localization Team",
+    "version": "1.0.0"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "search": "Search",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "nav": {
+    "overview": "Overview",
+    "providers": "Providers",
+    "scans": "Scans",
+    "findings": "Findings",
+    "compliance": "Compliance",
+    "attack_paths": "Attack Paths",
+    "settings": "Settings",
+    "logout": "Sign out"
+  },
+  "scan": {
+    "start": "Start new scan",
+    "running": "Scan in progress",
+    "completed": "Completed",
+    "failed": "Failed",
+    "cancelled": "Cancelled",
+    "progress": "Progress"
+  },
+  "findings": {
+    "severity": {
+      "critical": "Critical",
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low",
+      "informational": "Informational"
+    },
+    "status": {
+      "pass": "Pass",
+      "fail": "Fail",
+      "muted": "Muted"
+    }
+  },
+  "compliance": {
+    "frameworks": "Compliance frameworks",
+    "score": "Compliance score",
+    "passed_requirements": "Passed requirements",
+    "failed_requirements": "Failed requirements"
+  },
+  "az_specific": {
+    "amb_compliance": "Central Bank (AMB) compliance",
+    "fincert_alerts": "FinCERT alerts",
+    "data_residency": "Data residency (Azerbaijan)",
+    "g_cloud_tier_3": "G-Cloud Tier III certification"
+  }
+}

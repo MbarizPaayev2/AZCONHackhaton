@@ -1,0 +1,24 @@
+{
+  "page": {
+    "dashboard": "İdarə paneli",
+    "overview": "Ümumi baxış",
+    "compliance": "Uyğunluq",
+    "findings": "Tapıntılar",
+    "scans": "Yoxlamalar",
+    "reports": "Hesabatlar",
+    "settings": "Tənzimləmələr"
+  },
+  "widget": {
+    "scan_summary": "Yoxlamanın xülasəsi",
+    "compliance_overview": "Uyğunluq icmalı",
+    "top_failed_checks": "Ən çox uğursuz yoxlamalar",
+    "severity_breakdown": "Ciddilik səviyyəsi üzrə bölgü",
+    "trends": "Meyllər"
+  },
+  "action": {
+    "export_csv": "CSV ixrac et",
+    "export_pdf": "PDF ixrac et",
+    "rerun_scan": "Yenidən yoxla",
+    "schedule": "Cədvəllə"
+  }
+}
