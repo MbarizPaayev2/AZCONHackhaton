@@ -103,6 +103,11 @@ const nextConfig = {
         source: "/api/v1/:path*",
         destination: `${backendServer}/api/v1/:path*`,
       },
+      {
+        // Also expose via /backend/ prefix as fallback
+        source: "/backend/:path*",
+        destination: `${backendServer}/:path*`,
+      },
     ];
   },
 };

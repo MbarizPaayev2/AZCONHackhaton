@@ -3,6 +3,8 @@ import { Spacer } from "@heroui/spacer";
 import { FilterControls } from "@/components/filters";
 import { ContentLayout } from "@/components/ui";
 
+export const dynamic = "force-dynamic";
+
 export default async function Services() {
   // const searchParamsKey = JSON.stringify(searchParams || {});
   return (
