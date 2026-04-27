@@ -138,6 +138,7 @@ AUTH_TRUST_HOST=true
 AUTH_SECRET=$AUTH_SECRET
 
 #### MCP Server ####
+MCP_SERVER_PORT=8001
 PROWLER_MCP_SERVER_URL=http://mcp-server:8000/mcp
 
 #### RSS Feed ####
@@ -177,7 +178,7 @@ echo ""
 echo "Server IP:       $SERVER_IP"
 echo "API (Django):    http://$SERVER_IP:8080/api/v1"
 echo "API Docs:        http://$SERVER_IP:8080/api/v1/docs"
-echo "MCP Server:      http://$SERVER_IP:8000"
+echo "MCP Server:      http://$SERVER_IP:8001"
 echo ""
 echo "Useful commands:"
 echo "  View API logs:      sudo docker compose -f docker-compose.backend.yml logs -f api"
