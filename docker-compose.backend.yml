@@ -1,6 +1,6 @@
 # Production Docker Compose configuration - Backend Only
 # For DigitalOcean deployment (no UI service - frontend runs on Vercel)
-# Frontend URL: https://azconhakaton.vercel.app
+# Frontend URL: https://azcspm.vercel.app
 #
 # Usage:
 #   docker compose -f docker-compose.backend.yml up -d
