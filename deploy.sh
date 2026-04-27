@@ -44,6 +44,8 @@ REPO_DIR="AZCONHackhaton"
 if [ -d "$REPO_DIR" ]; then
     echo "Directory $REPO_DIR already exists. Pulling latest changes..."
     cd "$REPO_DIR"
+    git fetch --all
+    git reset --hard origin/main
     git pull origin main
     cd ..
 else
