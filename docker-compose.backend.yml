@@ -131,7 +131,7 @@ services:
   worker-beat:
     image: prowlercloud/prowler-api:${PROWLER_API_VERSION:-stable}
     env_file:
-      - path: ./.env
+      - path: .env
         required: false
     depends_on:
       api:
@@ -141,7 +141,7 @@ services:
         soft: 65536
         hard: 65536
     entrypoint:
-      - "../docker-entrypoint.sh"
+      - "/home/prowler/docker-entrypoint.sh"
       - "beat"
 
   mcp-server:
