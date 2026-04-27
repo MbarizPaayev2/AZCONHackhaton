@@ -78,7 +78,7 @@ PROWLER_MCP_VERSION=stable
 API_BASE_URL=http://$SERVER_IP:8080/api/v1
 NEXT_PUBLIC_API_BASE_URL=http://$SERVER_IP:8080/api/v1
 NEXT_PUBLIC_API_DOCS_URL=http://$SERVER_IP:8080/api/v1/docs
-AUTH_URL=https://ui-six-pearl.vercel.app
+AUTH_URL=https://azconhakaton.vercel.app
 
 #### PostgreSQL settings ####
 POSTGRES_HOST=postgres-db
@@ -117,7 +117,7 @@ VALKEY_DB=0
 
 #### Django settings ####
 DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,prowler-api,$SERVER_IP
-DJANGO_CORS_ALLOWED_ORIGINS=https://ui-six-pearl.vercel.app,http://localhost:3000
+DJANGO_CORS_ALLOWED_ORIGINS=https://azconhakaton.vercel.app,http://localhost:3000
 DJANGO_BIND_ADDRESS=0.0.0.0
 DJANGO_PORT=8080
 DJANGO_DEBUG=False

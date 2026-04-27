@@ -1,6 +1,6 @@
 # Production Docker Compose configuration - Backend Only
 # For DigitalOcean deployment (no UI service - frontend runs on Vercel)
-# Frontend URL: https://ui-six-pearl.vercel.app
+# Frontend URL: https://azconhakaton.vercel.app
 #
 # Usage:
 #   docker compose -f docker-compose.backend.yml up -d

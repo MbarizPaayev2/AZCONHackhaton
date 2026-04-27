@@ -1,6 +1,6 @@
 # AzCSPM Backend Deployment Guide
 
-Deploy the **AzCSPM Backend** on a DigitalOcean Droplet. The frontend is already on Vercel at [https://ui-six-pearl.vercel.app](https://ui-six-pearl.vercel.app).
+Deploy the **AzCSPM Backend** on a DigitalOcean Droplet. The frontend is already on Vercel at [https://azconhakaton.vercel.app](https://azconhakaton.vercel.app).
 
 ---
 
