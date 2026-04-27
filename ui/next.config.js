@@ -95,18 +95,13 @@ const nextConfig = {
   // Vercel's servers forward the request to the HTTP DigitalOcean backend,
   // avoiding Mixed-Content blocks and simplifying CORS configuration.
   async rewrites() {
-    const backendRoot = (() => {
-      const base = process.env.NEXT_PUBLIC_API_BASE_URL || "";
-      // Strip trailing /api/v1 to get the server root
-      return base.replace(/\/api\/v1\/?$/, "");
-    })();
-
-    if (!backendRoot) return [];
+    // The explicit DigitalOcean backend IP
+    const backendServer = "http://138.68.75.228:8080";
 
     return [
       {
         source: "/api/v1/:path*",
-        destination: `${backendRoot}/api/v1/:path*`,
+        destination: `${backendServer}/api/v1/:path*`,
       },
     ];
   },
