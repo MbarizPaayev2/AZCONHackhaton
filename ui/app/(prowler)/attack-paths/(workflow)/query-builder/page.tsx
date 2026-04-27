@@ -2,6 +2,8 @@ import { redirect } from "next/navigation";
 
 import { SearchParamsProps } from "@/types";
 
+export const dynamic = "force-dynamic";
+
 const buildQueryString = (searchParams: SearchParamsProps) => {
   const params = new URLSearchParams();
 
