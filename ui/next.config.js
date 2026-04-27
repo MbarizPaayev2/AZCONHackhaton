@@ -7,10 +7,21 @@ const { withSentryConfig } = require("@sentry/nextjs");
 
 // HTTP Security Headers
 // 'unsafe-eval' is configured under `script-src` because it is required by NextJS for development mode
+// Extract hostname from API URL for CSP (supports both http and https backends)
+const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "";
+const apiHostPattern = (() => {
+  try {
+    const url = new URL(apiBaseUrl);
+    return `${url.protocol}//${url.host}`;
+  } catch {
+    return "";
+  }
+})();
+
 const cspHeader = `
   default-src 'self';
   script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://www.googletagmanager.com https://browser.sentry-cdn.com;
-  connect-src 'self' https://api.iconify.design https://api.simplesvg.com https://api.unisvg.com https://js.stripe.com https://www.googletagmanager.com https://*.sentry.io https://*.ingest.sentry.io;
+  connect-src 'self' ${apiHostPattern} https://api.iconify.design https://api.simplesvg.com https://api.unisvg.com https://js.stripe.com https://www.googletagmanager.com https://*.sentry.io https://*.ingest.sentry.io;
   img-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;
   font-src 'self';
   style-src 'self' 'unsafe-inline';
@@ -75,6 +86,27 @@ const nextConfig = {
       {
         source: "/(.*)",
         headers,
+      },
+    ];
+  },
+
+  // Proxy all /api/v1/* requests to the backend.
+  // This lets the browser call a same-origin HTTPS URL (Vercel) while
+  // Vercel's servers forward the request to the HTTP DigitalOcean backend,
+  // avoiding Mixed-Content blocks and simplifying CORS configuration.
+  async rewrites() {
+    const backendRoot = (() => {
+      const base = process.env.NEXT_PUBLIC_API_BASE_URL || "";
+      // Strip trailing /api/v1 to get the server root
+      return base.replace(/\/api\/v1\/?$/, "");
+    })();
+
+    if (!backendRoot) return [];
+
+    return [
+      {
+        source: "/api/v1/:path*",
+        destination: `${backendRoot}/api/v1/:path*`,
       },
     ];
   },
