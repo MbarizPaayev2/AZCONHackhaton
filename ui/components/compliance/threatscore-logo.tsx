@@ -34,9 +34,9 @@ export const ThreatScoreLogo = () => {
         />
       </g>
 
-      {/* THREATSCORE text */}
+      {/* AZCSPM THREATSCORE text */}
       <text x="0" y="240" fontSize="80" fontWeight="700" fill="#22c55e">
-        THREATSCORE
+        AZCSPM SCORE
       </text>
 
       {/* Gauge icon - semicircular meter - 1.5x larger */}

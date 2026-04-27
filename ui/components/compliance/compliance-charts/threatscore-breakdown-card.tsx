@@ -40,7 +40,7 @@ export function ThreatScoreBreakdownCard({
   return (
     <Card variant="base" className="flex h-full w-full flex-col">
       <CardHeader>
-        <CardTitle>ThreatScore Breakdown</CardTitle>
+        <CardTitle>AzCSPM ThreatScore Breakdown</CardTitle>
       </CardHeader>
       {/* Mobile: vertical, Tablet: horizontal, Desktop: vertical */}
       <CardContent className="flex flex-1 flex-col gap-4 md:flex-row md:items-stretch lg:flex-col">
